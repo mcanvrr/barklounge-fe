@@ -198,6 +198,9 @@ const AboutContentComponent: React.FC<{
               {/* Telefon Butonu */}
               <a
                 href={`tel:${appSettings?.phone_number || '#'}`}
+                title={`${
+                  appSettings?.phone_number || 'Telefon'
+                } numarasını arayın`}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='group relative flex items-center justify-center w-full bg-gradient-to-r from-navy-500 to-navy-600 hover:from-navy-600 hover:to-navy-700 text-white px-6 py-4 rounded-2xl font-semibold text-base transition-all duration-300 hover:scale-[1.02] hover:shadow-xl overflow-hidden'

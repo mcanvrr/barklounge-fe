@@ -291,6 +291,7 @@ const CTASection: React.FC<{
   const { reviewStats: reduxReviewStats } = useAppSelector(
     state => state.reviews
   );
+  const { settings: appSettings } = useAppSelector(state => state.appSettings);
 
   const about = ssrAbout || reduxAbout;
   const services = ssrServices || reduxServices;
@@ -350,21 +351,43 @@ const CTASection: React.FC<{
         </div>
       </div>
       <div className='flex flex-col sm:flex-row justify-center gap-4 mt-6'>
-        <button className='group bg-white/80 backdrop-blur-sm border-2 border-navy-200 text-navy-600 px-6 py-3 rounded-2xl font-semibold hover:bg-navy-50 hover:border-navy-300 transition-all duration-300 flex items-center justify-center gap-2'>
+        <a
+          href={`tel:${appSettings?.phone_number || '#'}`}
+          title={`${appSettings?.phone_number || 'Telefon'} numarasını arayın`}
+          target='_blank'
+          rel='nofollow noopener noreferrer'
+          className='group bg-white/80 backdrop-blur-sm border-2 border-navy-200 text-navy-600 px-6 py-3 rounded-2xl font-semibold hover:bg-navy-50 hover:border-navy-300 transition-all duration-300 flex items-center justify-center gap-2'
+        >
           <span>📞</span>
           <span>Bizi Arayın</span>
           <div className='w-0 group-hover:w-4 h-0.5 bg-navy-400 transition-all duration-300'></div>
-        </button>
-        <button className='group bg-white/80 backdrop-blur-sm border-2 border-orange-200 text-orange-600 px-6 py-3 rounded-2xl font-semibold hover:bg-orange-50 hover:border-orange-300 transition-all duration-300 flex items-center justify-center gap-2'>
+        </a>
+        <a
+          href={`https://wa.me/${(
+            appSettings?.phone_number || '+905462469237'
+          ).replace(/\s+/g, '')}?text=${encodeURIComponent(
+            'Merhaba! Pet hizmetleriniz hakkında bilgi almak istiyorum.'
+          )}`}
+          title='Mesaj Gönderin'
+          target='_blank'
+          rel='nofollow oopener noreferrer'
+          className='group bg-white/80 backdrop-blur-sm border-2 border-orange-200 text-orange-600 px-6 py-3 rounded-2xl font-semibold hover:bg-orange-50 hover:border-orange-300 transition-all duration-300 flex items-center justify-center gap-2'
+        >
           <span>💬</span>
           <span>Mesaj Gönderin</span>
           <div className='w-0 group-hover:w-4 h-0.5 bg-orange-400 transition-all duration-300'></div>
-        </button>
-        <button className='group bg-white/80 backdrop-blur-sm border-2 border-green-200 text-green-600 px-6 py-3 rounded-2xl font-semibold hover:bg-green-50 hover:border-green-300 transition-all duration-300 flex items-center justify-center gap-2'>
+        </a>
+        <a
+          href='https://maps.app.goo.gl/8MBkzxFGo2Nq14aD6'
+          title='Konumumuz'
+          target='_blank'
+          rel='nofollow noopener noreferrer'
+          className='group bg-white/80 backdrop-blur-sm border-2 border-green-200 text-green-600 px-6 py-3 rounded-2xl font-semibold hover:bg-green-50 hover:border-green-300 transition-all duration-300 flex items-center justify-center gap-2'
+        >
           <span>📍</span>
           <span>Konumumuz</span>
           <div className='w-0 group-hover:w-4 h-0.5 bg-green-400 transition-all duration-300'></div>
-        </button>
+        </a>
       </div>
       <div className='mt-8 flex items-center justify-center gap-2 text-gray-600'>
         <div className='flex text-yellow-400 text-lg'>{'⭐'.repeat(5)}</div>
