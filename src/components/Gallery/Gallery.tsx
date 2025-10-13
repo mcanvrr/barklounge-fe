@@ -95,7 +95,8 @@ export default function Gallery({
               <a
                 href={image.image_url}
                 target='_blank'
-                rel='noopener noreferrer'
+                rel='nofollow noopener noreferrer'
+                title={`${image.title || 'Galeri resmi'} tam boyutta görüntüle`}
                 aria-label={`Galeri resmi ${index + 1} - ${
                   image.title || 'Bark&Lounge'
                 }`}

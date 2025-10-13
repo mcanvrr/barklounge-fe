@@ -58,7 +58,8 @@ const FooterFloating: React.FC = () => {
       <a
         href={whatsapp.href}
         target='_blank'
-        rel='noopener noreferrer'
+        rel='nofollow noopener noreferrer'
+        title='WhatsApp ile bize ulaşın'
         aria-label='WhatsApp ile iletişime geçin'
         className='fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-20'
       >
@@ -120,7 +121,8 @@ const FooterSocial: React.FC = () => {
           key={item.key}
           href={item.href}
           target='_blank'
-          rel='noopener noreferrer'
+          rel='nofollow noopener noreferrer'
+          title={`${item.key} hesabımızı takip edin`}
           aria-label={`${item.key} hesabımızı ziyaret edin`}
           className={cn(
             'h-9 w-9 lg:h-11 lg:w-11 rounded-full flex items-center justify-center cursor-pointer transition-colors hover:bg-navy-900! group',
@@ -207,10 +209,11 @@ const FooterLinks: React.FC<FooterLinksProps> = ({ title, links }) => {
           >
             <a
               href={link.href}
+              title={`${link.text} sayfasına git`}
               onClick={e => handleSmoothScroll(e, link.href)}
               {...(link.href.startsWith('http') && {
                 target: '_blank',
-                rel: 'noopener noreferrer',
+                rel: 'nofollow noopener noreferrer',
               })}
               aria-label={`${link.text} sayfasına git`}
             >
@@ -247,6 +250,7 @@ const FooterContact: React.FC = () => {
         </span>
         <a
           href={`mailto:${footerContact.email}`}
+          title={`${footerContact.email} adresine e-posta gönderin`}
           className='text-xs sm:text-sm font-medium hover:text-navy-700 transition-colors duration-200 cursor-pointer'
           aria-label={`${footerContact.email} adresine e-posta gönder`}
         >
@@ -254,6 +258,7 @@ const FooterContact: React.FC = () => {
         </a>
         <a
           href={`tel:${footerContact.phone.replace(/\s/g, '')}`}
+          title={`${footerContact.phone} numarasını arayın`}
           className='text-xs sm:text-sm font-semibold text-navy-700 hover:text-navy-900 transition-colors duration-200 cursor-pointer'
           aria-label={`${footerContact.phone} numarasını ara`}
         >

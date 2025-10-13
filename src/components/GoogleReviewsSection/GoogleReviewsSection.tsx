@@ -208,7 +208,8 @@ export default function GoogleReviewsSection({
               <a
                 href='https://share.google/lpi8lziWR2qrTXyhe'
                 target='_blank'
-                rel='noopener noreferrer'
+                rel='nofollow noopener noreferrer'
+                title='Google üzerinden yorum bırakın'
                 aria-label='Yorum Bırak'
                 className='bg-gradient-to-r from-navy-600 to-navy-700 hover:from-navy-700 hover:to-navy-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2'
               >
@@ -220,6 +221,9 @@ export default function GoogleReviewsSection({
                 href={`tel:${appSettings?.phone_number || '#'}`}
                 target='_blank'
                 rel='noopener noreferrer'
+                title={`${
+                  appSettings?.phone_number || 'Telefon'
+                } numarasını arayın`}
                 aria-label='Bizi Arayın'
                 className='bg-white border-2 border-navy-200 text-navy-600 hover:bg-navy-50 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2'
               >

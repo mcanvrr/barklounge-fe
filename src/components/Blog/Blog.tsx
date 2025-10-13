@@ -86,6 +86,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
         {/* Title */}
         <Link
           href={`/blog/${post.slug}`}
+          title={`${post.title} - Detaylı oku`}
           aria-label={`${post.title} blog yazısını oku`}
         >
           <h3 className='text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-2 leading-tight group-hover:text-orange-600 transition-colors duration-200 cursor-pointer hover:text-orange-600'>
@@ -115,6 +116,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
           {/* Read More */}
           <Link
             href={`/blog/${post.slug}`}
+            title={`${post.title} yazısını oku`}
             aria-label={`${post.title} blog yazısını oku`}
             className='inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-orange-600 to-amber-600 text-white text-xs sm:text-sm font-semibold rounded-lg hover:from-orange-700 hover:to-amber-700 transform hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-md self-start sm:self-auto'
           >
@@ -331,6 +333,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ blogPosts, allTags }) => {
             <Link
               key={post.id}
               href={`/blog/${post.slug}`}
+              title={`${post.title} - Popüler yazı`}
               aria-label={`${post.title} blog yazısını oku`}
               className='group block'
             >
@@ -445,6 +448,7 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
 
             <Link
               href={`/blog/${post.slug}`}
+              title={`${post.title} - Öne çıkan yazı`}
               aria-label={`${post.title} blog yazısını oku`}
             >
               <h2 className='text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight cursor-pointer hover:text-orange-600 transition-colors duration-200'>
@@ -475,6 +479,7 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
 
               <Link
                 href={`/blog/${post.slug}`}
+                title={`${post.title} hikayesini oku`}
                 aria-label={`${post.title} blog yazısını oku`}
                 className='inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-sm sm:text-base font-semibold rounded-lg sm:rounded-xl hover:from-orange-600 hover:to-amber-600 transition-all transform hover:scale-105 shadow-lg'
               >

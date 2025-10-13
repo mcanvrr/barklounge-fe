@@ -80,6 +80,7 @@ const HeaderTop: React.FC = () => {
                 {isEmail ? (
                   <a
                     href={`mailto:${item.description}`}
+                    title={`${item.description} adresine e-posta gönderin`}
                     className='flex items-center gap-3 lg:gap-4 cursor-pointer'
                     aria-label={`${item.description} adresine e-posta gönder`}
                   >
@@ -88,6 +89,7 @@ const HeaderTop: React.FC = () => {
                 ) : isPhone ? (
                   <a
                     href={`tel:${item.description.replace(/\s/g, '')}`}
+                    title={`${item.description} numarasını arayın`}
                     className='flex items-center gap-3 lg:gap-4 cursor-pointer'
                     aria-label={`${item.description} numarasını ara`}
                   >
@@ -249,6 +251,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({ isScrolled }) => {
         <a
           key={index}
           href={item.href}
+          title={`${item.text} bölümüne git`}
           className={`${linkClasses} hover:-translate-y-0.5 active:scale-95 transition-all duration-200 ease-out`}
           aria-label={`${item.text} bölümüne git`}
           onClick={e => handleSmoothScroll(e, item.href)}
@@ -266,6 +269,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({ isScrolled }) => {
       >
         <Link
           href={item.href}
+          title={`${item.text} sayfasına git`}
           className={linkClasses}
           aria-label={`${item.text} sayfasına git`}
           onClick={() => {
@@ -318,7 +322,8 @@ const HeaderSocial: React.FC = () => {
           key={item.key}
           href={item.href}
           target='_blank'
-          rel='noopener noreferrer'
+          rel='nofollow noopener noreferrer'
+          title={`${item.key} hesabımızı takip edin`}
           aria-label={`${item.key} hesabımızı ziyaret edin`}
           className={cn(
             'h-9 w-9 lg:h-11 lg:w-11 rounded-full flex items-center justify-center cursor-pointer group hover:scale-105 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 ease-out',
@@ -401,6 +406,7 @@ const Header: React.FC = () => {
             {/* Logo */}
             <Link
               href='/'
+              title='Bark & Lounge - Ana sayfa'
               className='flex-shrink-0 hover:scale-105 active:scale-95 transition-transform duration-300 ease-out'
               aria-label='Ana sayfaya dön'
             >

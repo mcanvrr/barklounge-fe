@@ -63,6 +63,7 @@ const SlideContent: React.FC<SlideContentProps> = ({ slide }) => {
         {/* CTA Butonu */}
         <a
           href='#iletisim'
+          title='İletişim bölümüne git'
           className='bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg inline-block'
         >
           Bize Ulaşın

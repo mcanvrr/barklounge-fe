@@ -196,6 +196,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           <div className='mt-auto pt-3'>
             <a
               href='#iletisim'
+              title={`${service.title} için iletişime geçin`}
               className='w-full inline-flex items-center justify-center px-4 py-2.5 sm:py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold text-sm sm:text-base rounded-xl hover:from-blue-700 hover:to-blue-800 hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 transform group-hover:shadow-xl relative z-20'
               aria-label={`${service.title} hizmeti için iletişime geç`}
             >

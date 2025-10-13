@@ -90,6 +90,7 @@ const BlogPostClient = ({
           </p>
           <Link
             href='/blog'
+            title='Blog sayfasına dön'
             className='px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors inline-block'
           >
             Blog&apos;a D\u00f6n
@@ -158,6 +159,7 @@ const BlogPostContent = ({
             {/* Back Button */}
             <Link
               href='/blog'
+              title='Blog sayfasına dön'
               className='inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm text-gray-700 hover:text-orange-600 rounded-xl border border-orange-200 hover:border-orange-300 transition-all transform hover:scale-105'
             >
               <ArrowLeft className='w-4 h-4' />
@@ -309,6 +311,7 @@ const BlogPostContent = ({
               <div className='mt-12 pt-8 border-t border-gray-200/50 text-center'>
                 <Link
                   href='/blog'
+                  title='Tüm blog yazılarını keşfet'
                   className='inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-600 to-amber-600 text-white rounded-2xl hover:from-orange-700 hover:to-amber-700 transition-all transform hover:scale-105 font-bold shadow-lg'
                 >
                   <ArrowLeft className='w-5 h-5' />
@@ -347,6 +350,7 @@ const BlogPostContent = ({
                     <Link
                       key={relatedPost.id}
                       href={`/blog/${relatedPost.slug}`}
+                      title={`${relatedPost.title} - İlgili yazı`}
                       aria-label={`${relatedPost.title} blog yazısını oku`}
                       className='group block'
                     >
