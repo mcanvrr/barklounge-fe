@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'barklounge.com', // Production domain
+        hostname: 'barkloungetr.com', // Production domain
       },
     ],
   },
