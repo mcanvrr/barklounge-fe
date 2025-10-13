@@ -10,11 +10,11 @@ import { Metadata } from 'next';
 import React from 'react';
 import HomeClient from './HomeClient';
 
-// ISR: Regenerate every 10 minutes for fresh content
-export const revalidate = 600; // 10 minutes
+// SSR: Her sayfa yenilendiğinde (F5) güncel verileri çek
+export const dynamic = 'force-dynamic';
 
-// SSR: Dynamic rendering için (her request'te yeni data)
-// export const dynamic = 'force-dynamic';
+// Cache kullanma, her istekte taze veri
+export const revalidate = 0;
 
 // SSG: Generate metadata for home page (Server-side)
 export async function generateMetadata(): Promise<Metadata> {

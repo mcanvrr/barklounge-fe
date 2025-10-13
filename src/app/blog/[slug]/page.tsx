@@ -8,8 +8,11 @@ interface BlogPostPageProps {
   }>;
 }
 
-// ISR: Regenerate every 5 minutes for fresh content
-export const revalidate = 300; // 5 minutes
+// SSR: Her sayfa yenilendiğinde (F5) güncel verileri çek
+export const dynamic = 'force-dynamic';
+
+// Cache kullanma, her istekte taze veri
+export const revalidate = 0;
 
 // SSG: Generate static params for all blog posts (required for static export)
 export async function generateStaticParams() {

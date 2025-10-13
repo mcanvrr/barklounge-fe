@@ -3,8 +3,11 @@ import { AppSettingsService, BlogPostsService } from '@/lib/api';
 import { Metadata } from 'next';
 import BlogListClient from './BlogListClient';
 
-// ISR: Regenerate every 5 minutes for fresh blog content
-export const revalidate = 300; // 5 minutes
+// SSR: Her sayfa yenilendiğinde (F5) güncel verileri çek
+export const dynamic = 'force-dynamic';
+
+// Cache kullanma, her istekte taze veri
+export const revalidate = 0;
 
 // SSR: Dynamic metadata from API
 export async function generateMetadata(): Promise<Metadata> {
