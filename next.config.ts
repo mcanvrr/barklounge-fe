@@ -28,6 +28,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'barkloungetr.com', // Production domain
       },
+      {
+        protocol: 'https',
+        hostname: 'api.barkloungetr.com', // Production domain
+      },
     ],
   },
   // ISR/SSR için revalidation süresi (saniye)
