@@ -66,7 +66,7 @@ export default function AboutUsSection({
                     🏨
                   </div>
                   <div className='text-4xl font-bold text-white mb-2'>
-                    {about?.pet_hotel_customers || 515}
+                    {about?.pet_hotel_customers || 515}+
                   </div>
                   <div className='text-blue-200 text-sm font-medium'>
                     Pet Hotel Müşterisi
@@ -78,7 +78,7 @@ export default function AboutUsSection({
                     ✂️
                   </div>
                   <div className='text-4xl font-bold text-white mb-2'>
-                    {about?.pet_grooming_customers || 144}
+                    {about?.pet_grooming_customers || 144}+
                   </div>
                   <div className='text-blue-200 text-sm font-medium'>
                     Pet Kuaför Müşterisi

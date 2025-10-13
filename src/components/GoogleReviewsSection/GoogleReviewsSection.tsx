@@ -21,6 +21,7 @@ export default function GoogleReviewsSection({
     loading,
     error,
   } = useAppSelector(state => state.reviews);
+  const { settings: appSettings } = useAppSelector(state => state.appSettings);
 
   const reviews = ssrReviews || reduxReviews;
   const reviewStats = ssrReviewStats || reduxReviewStats;
@@ -204,15 +205,27 @@ export default function GoogleReviewsSection({
             </p>
 
             <div className='flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center'>
-              <button className='bg-gradient-to-r from-navy-600 to-navy-700 hover:from-navy-700 hover:to-navy-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2'>
+              <a
+                href='https://share.google/lpi8lziWR2qrTXyhe'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='Yorum Bırak'
+                className='bg-gradient-to-r from-navy-600 to-navy-700 hover:from-navy-700 hover:to-navy-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2'
+              >
                 <span>💬</span>
                 <span>Yorum Bırak</span>
-              </button>
+              </a>
 
-              <button className='bg-white border-2 border-navy-200 text-navy-600 hover:bg-navy-50 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2'>
+              <a
+                href={`tel:${appSettings?.phone_number || '#'}`}
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='Bizi Arayın'
+                className='bg-white border-2 border-navy-200 text-navy-600 hover:bg-navy-50 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2'
+              >
                 <span>📞</span>
                 <span>Bizi Arayın</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
