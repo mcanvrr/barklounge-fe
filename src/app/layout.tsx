@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import { Schoolbell, Sora } from 'next/font/google';
 import { Footer, Header } from '../components';
@@ -41,6 +42,7 @@ export default function RootLayout({
           <main className='flex-1'>{children}</main>
           <Footer />
         </ReduxProvider>
+        <Analytics />
       </body>
     </html>
   );
