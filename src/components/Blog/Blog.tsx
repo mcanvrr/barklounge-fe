@@ -366,8 +366,8 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ blogPosts, allTags }) => {
         </div>
       </div>
 
-      {/* Newsletter */}
-      <div className='relative overflow-hidden'>
+      {/* TODO: Newsletter */}
+      {/* <div className='relative overflow-hidden'>
         <div className='absolute inset-0 bg-gradient-to-br from-orange-600 via-amber-600 to-yellow-600 rounded-3xl'></div>
         <div className='relative bg-black/10 rounded-3xl p-8 text-white'>
           <div className='text-center mb-6'>
@@ -390,7 +390,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ blogPosts, allTags }) => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Fun Stats */}
       <div className='bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-gray-100 p-4 sm:p-6'>
