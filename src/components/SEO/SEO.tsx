@@ -58,15 +58,15 @@ const BlogStructuredData: React.FC<BlogStructuredDataProps> = ({ post }) => {
     publisher: {
       '@type': 'Organization',
       name: 'Bark & Lounge',
-      logo: 'https://barklounge.com/images/logo.jpg',
+      logo: 'https://api.barkloungetr.com/uploads/images/seo/1760384769339-alo5x6i5ivg.png',
     },
     datePublished: post.created_at,
     dateModified: post.created_at,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://barklounge.com/blog/${post.slug}`,
+      '@id': `https://barkloungetr.com/blog/${post.slug}`,
     },
-    url: `https://barklounge.com/blog/${post.slug}`,
+    url: `https://barkloungetr.com/blog/${post.slug}`,
     keywords: post.tags?.join(', ') || '',
     articleSection: 'Pet Bakım',
     wordCount: post.content.split(/\s+/).length,
@@ -99,12 +99,12 @@ const HomeStructuredData = ({
 
   const structuredData = {
     '@type': 'LocalBusiness',
-    '@id': 'https://barklounge.com',
+    '@id': 'https://barkloungetr.com',
     name: 'Bark & Lounge',
     description:
       seoSettings?.description ||
       'Bark Lounge ailesi olarak evcil dostlarınıza konfor ve mutluluk sunuyoruz. Modern, hijyenik ortamda pet kuaför, bakım ve konaklama hizmetleri veriyoruz.',
-    url: 'https://barklounge.com',
+    url: 'https://barkloungetr.com',
     telephone: appSettings?.phone_number || '+90 546 246 9237',
     email: appSettings?.email_address || 'barkloungetr@gmail.com',
     address: {
@@ -145,8 +145,11 @@ const HomeStructuredData = ({
     paymentAccepted: 'Cash, Credit Card, Bank Transfer',
     currenciesAccepted: 'TRY',
     image:
-      seoSettings?.og_image_url || 'https://barklounge.com/images/logo.jpg',
-    logo: seoSettings?.og_image_url || 'https://barklounge.com/images/logo.jpg',
+      seoSettings?.og_image_url ||
+      'https://api.barkloungetr.com/uploads/images/seo/1760384769339-alo5x6i5ivg.png',
+    logo:
+      seoSettings?.og_image_url ||
+      'https://api.barkloungetr.com/uploads/images/seo/1760384769339-alo5x6i5ivg.png',
     sameAs: [
       appSettings?.facebook_url,
       appSettings?.instagram_url,
