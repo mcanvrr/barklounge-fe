@@ -51,6 +51,9 @@ export async function generateMetadata({
       description: post.excerpt,
       keywords: post.tags?.join(', ') || 'bark lounge, pet, blog',
       authors: [{ name: post.author }],
+      alternates: {
+        canonical: `https://barkloungetr.com/blog/${resolvedParams.slug}`,
+      },
       openGraph: {
         title: post.title,
         description: post.excerpt,

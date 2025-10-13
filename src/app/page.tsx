@@ -32,6 +32,9 @@ export async function generateMetadata(): Promise<Metadata> {
       keywords:
         seoSettings?.keywords ||
         'pet kuaför, köpek kuaförü, kedi bakımı, pet hotel, evcil hayvan oteli, pet kreş, köpek eğitimi, pet bakım merkezi, Bark&Lounge',
+      alternates: {
+        canonical: seoSettings?.canonical_url || 'https://barkloungetr.com',
+      },
       openGraph: {
         title:
           seoSettings?.og_title || 'Bark & Lounge - Pet Kuaför, Kreş ve Otel',
@@ -66,6 +69,9 @@ export async function generateMetadata(): Promise<Metadata> {
         'Bark & Lounge - Pet Kuaför, Kreş ve Otel | Evcil Hayvan Bakım Merkezi',
       description:
         'Bark Lounge ailesi olarak evcil dostlarınıza konfor ve mutluluk sunuyoruz. Modern, hijyenik ortamda pet kuaför, bakım ve konaklama hizmetleri veriyoruz.',
+      alternates: {
+        canonical: 'https://barkloungetr.com',
+      },
     };
   }
 }

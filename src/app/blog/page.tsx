@@ -26,6 +26,9 @@ export async function generateMetadata(): Promise<Metadata> {
       keywords:
         seoSettings?.keywords ||
         'pet bakım, köpek bakımı, kedi bakımı, evcil hayvan sağlığı, pet eğitimi, Bark&Lounge blog',
+      alternates: {
+        canonical: 'https://barkloungetr.com/blog',
+      },
       openGraph: {
         title: 'Blog | Bark&Lounge - Pet Bakım Rehberleri',
         description:

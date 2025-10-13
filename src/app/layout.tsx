@@ -1,5 +1,5 @@
 import { Analytics } from '@vercel/analytics/next';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Schoolbell, Sora } from 'next/font/google';
 import { Footer, Header } from '../components';
 import ReduxProvider from '../components/ReduxProvider';
@@ -16,10 +16,37 @@ const schoolBell = Schoolbell({
   subsets: ['latin'],
 });
 
+export const viewport: Viewport = {
+  themeColor: '#007aff',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
+  colorScheme: 'light',
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://barkloungetr.com'),
   title: 'Bark & Lounge - Pet Kuaför, Kreş ve Otel',
   description:
     'Bark Lounge ailesi olarak evcil dostlarınıza konfor ve mutluluk sunuyoruz. Modern, hijyenik ortamda pet kuaför, bakım ve konaklama hizmetleri veriyoruz.',
+  keywords:
+    'pet kuaför, köpek kuaförü, kedi bakımı, pet hotel, pet kreş, evcil hayvan bakımı, Bark&Lounge, İstanbul',
+  authors: [{ name: 'Bark & Lounge', url: 'https://barkloungetr.com' }],
+  creator: 'Bark & Lounge',
+  publisher: 'Bark & Lounge',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: '/icon/favicon.ico',
     apple: '/icon/apple-icon.png',
