@@ -22,9 +22,9 @@ export default function BlogLoading() {
           <div className='inline-flex items-center justify-center w-20 h-20 bg-white backdrop-blur-lg rounded-2xl border border-gray-200 shadow-xl mb-4'>
             <span className='text-4xl'>📝</span>
           </div>
-          <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-900 mb-2'>
+          <h3 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-900 mb-2'>
             Blog
-          </h1>
+          </h3>
           <p className='text-navy-600 text-sm'>Bark&Lounge</p>
         </div>
 

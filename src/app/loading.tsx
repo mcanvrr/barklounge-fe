@@ -22,9 +22,9 @@ export default function Loading() {
           <div className='inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 mb-4'>
             <span className='text-4xl'>🐾</span>
           </div>
-          <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
+          <h3 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
             Bark<span className='text-orange-400'>&</span>Lounge
-          </h1>
+          </h3>
         </div>
 
         {/* Animated Spinner */}

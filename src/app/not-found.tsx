@@ -18,9 +18,9 @@ const NotFoundPage: React.FC = () => {
         <div className='mb-8'>
           <div className='relative'>
             {/* Animated 404 */}
-            <h1 className='text-9xl md:text-[12rem] font-black bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent leading-none animate-pulse'>
+            <h3 className='text-9xl md:text-[12rem] font-black bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 bg-clip-text text-transparent leading-none animate-pulse'>
               404
-            </h1>
+            </h3>
 
             {/* Floating Elements */}
             <div className='absolute -top-4 -right-4 w-8 h-8 bg-orange-200 rounded-full animate-bounce opacity-60'></div>
