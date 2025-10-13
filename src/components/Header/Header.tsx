@@ -399,7 +399,11 @@ const Header: React.FC = () => {
             }}
           >
             {/* Logo */}
-            <div className='flex-shrink-0 hover:scale-105 transition-transform duration-300 ease-out'>
+            <Link
+              href='/'
+              className='flex-shrink-0 hover:scale-105 active:scale-95 transition-transform duration-300 ease-out'
+              aria-label='Ana sayfaya dön'
+            >
               <div
                 className='transition-all duration-500 ease-out'
                 style={{
@@ -409,13 +413,14 @@ const Header: React.FC = () => {
               >
                 <Image
                   src={Logo}
-                  alt='Logo'
+                  alt='Bark & Lounge Logo'
                   width={60}
                   height={60}
                   className='w-full h-full object-contain'
+                  priority
                 />
               </div>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className='hidden lg:flex items-center gap-10'>
