@@ -1,13 +1,14 @@
-import { blogPosts } from '@/data/blog_posts';
+import { BlogPostsService } from '@/lib/api';
 import { MetadataRoute } from 'next';
 
-export const dynamic = 'force-static';
+// Her istekte yeni sitemap oluştur (güncel blog yazıları için)
+export const dynamic = 'force-dynamic';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://barklounge.com';
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = 'https://barkloungetr.com';
 
   // Static pages
-  const staticPages = [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -22,13 +23,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Blog posts
-  const blogPages = blogPosts.map(post => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.publishDate),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }));
+  try {
+    // API'den blog yazılarını çek
+    const blogPosts = await BlogPostsService.getPublishedPosts();
 
-  return [...staticPages, ...blogPages];
+    // Blog posts
+    const blogPages: MetadataRoute.Sitemap = blogPosts.map(post => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.updated_at || post.created_at),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    }));
+
+    return [...staticPages, ...blogPages];
+  } catch (error) {
+    console.error('Sitemap oluşturulurken hata:', error);
+    // Hata durumunda sadece static sayfaları döndür
+    return staticPages;
+  }
 }
