@@ -55,8 +55,6 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialData }) => {
   // Initial data'yı Redux store'a koy (hydration için)
   useEffect(() => {
     if (initialData) {
-      console.log("✅ Client: SSR verileri Redux store'a yükleniyor");
-
       // Her slice için initial data'yı dispatch et
       // Bu sayede client-side navigation'da da veriler hazır olur
       dispatch({
@@ -106,8 +104,6 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialData }) => {
           featuredPosts: initialData.blogPosts,
         },
       });
-
-      console.log('✅ Client: Redux store hydration tamamlandı');
     }
   }, [initialData, dispatch]);
 

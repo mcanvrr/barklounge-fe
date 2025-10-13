@@ -126,10 +126,6 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
         )
         .slice(0, 3);
     }
-
-    console.log('✅ SSR: Blog post data fetched', {
-      slug: resolvedParams.slug,
-    });
   } catch (error) {
     console.error('❌ SSR: Blog post fetch error:', error);
     // Client will handle the error state

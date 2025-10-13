@@ -74,8 +74,6 @@ export async function generateMetadata(): Promise<Metadata> {
 const Home: React.FC = async () => {
   // SSR: Tüm veriler server'da paralel olarak çekiliyor
   // Sayfa ancak tüm veriler hazır olduğunda render edilecek
-  console.log('🔄 SSR: Veriler çekiliyor...');
-
   try {
     // Paralel olarak TÜM verileri çek - Sayfa ancak bunlar hazır olunca render olur
     const [
@@ -120,14 +118,6 @@ const Home: React.FC = async () => {
       blogPosts,
       blogTags,
     };
-
-    console.log('✅ SSR: Tüm veriler hazır, sayfa render ediliyor');
-    console.log('📊 SSR Data:', {
-      slides: slides.length,
-      services: services.length,
-      gallery: gallery.length,
-      reviews: reviews.length,
-    });
 
     return (
       <>

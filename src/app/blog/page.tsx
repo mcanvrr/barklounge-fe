@@ -105,8 +105,6 @@ const BlogPage = async () => {
       featuredPosts: featuredPosts || [],
       blogTags: blogTags || [],
     };
-
-    console.log('✅ Blog SSR: Veriler sunucuda yüklendi');
   } catch (error) {
     console.error('❌ Blog SSR: Veri yüklenemedi:', error);
     // initialData null kalacak, client-side fallback devreye girecek
