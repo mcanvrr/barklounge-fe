@@ -117,7 +117,6 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialData }) => {
         {/* Tüm componentler SSR verileriyle render edildi */}
         <HomeSlider.default slides={initialData.slides} />
         <AboutSection
-          about={initialData.about}
           aboutContent={initialData.aboutContent}
           appSettings={initialData.appSettings}
         />
