@@ -2,13 +2,9 @@
 
 import WhatsappIcon from '@/assets/WhatsApp_icon.png';
 import { Section } from '@/components/ui';
-import type {
-  About,
-  AboutContent,
-  AppSettings,
-} from '@/lib/api/services/appSettings';
+import type { AboutContent, AppSettings } from '@/lib/api/services/appSettings';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { fetchAbout, fetchAboutContent } from '@/store/slices/aboutSlice';
+import { fetchAboutContent } from '@/store/slices/aboutSlice';
 import { fetchAppSettings } from '@/store/slices/appSettingsSlice';
 import { Award, Heart, Phone, Shield } from 'lucide-react';
 import Image from 'next/image';
@@ -16,12 +12,12 @@ import React, { useEffect } from 'react';
 
 // AboutContent Component
 const AboutContentComponent: React.FC<{
-  about?: About | null;
+  aboutContent?: AboutContent | null;
   appSettings?: AppSettings | null;
-}> = ({ about: ssrAbout, appSettings: ssrAppSettings }) => {
+}> = ({ aboutContent: ssrAboutContent, appSettings: ssrAppSettings }) => {
   const dispatch = useAppDispatch();
   const {
-    about: reduxAbout,
+    aboutContent: reduxAboutContent,
     loading,
     error,
   } = useAppSelector(state => state.about);
@@ -30,17 +26,23 @@ const AboutContentComponent: React.FC<{
     state => state.appSettings
   );
 
-  const about = ssrAbout || reduxAbout;
+  const aboutContent = ssrAboutContent || reduxAboutContent;
   const appSettings = ssrAppSettings || reduxAppSettings;
 
   useEffect(() => {
-    if (!ssrAbout && !reduxAbout) {
-      dispatch(fetchAbout());
+    if (!ssrAboutContent && !reduxAboutContent) {
+      dispatch(fetchAboutContent());
     }
     if (!ssrAppSettings && !reduxAppSettings) {
       dispatch(fetchAppSettings());
     }
-  }, [dispatch, ssrAbout, reduxAbout, ssrAppSettings, reduxAppSettings]);
+  }, [
+    dispatch,
+    ssrAboutContent,
+    reduxAboutContent,
+    ssrAppSettings,
+    reduxAppSettings,
+  ]);
 
   const features = [
     {
@@ -116,7 +118,7 @@ const AboutContentComponent: React.FC<{
           className='text-base sm:text-lg lg:text-xl text-gray-600 text-center lg:text-left leading-relaxed max-w-lg animate-fade-in-up'
           style={{ animationDelay: '0.2s' }}
         >
-          {about?.about_description || 'Hakkımızda metni yükleniyor...'}
+          {aboutContent?.description || 'Hakkımızda metni yükleniyor...'}
         </p>
       )}
 
@@ -338,10 +340,9 @@ const AboutImage: React.FC<{ aboutContent?: AboutContent | null }> = ({
 
 // Main AboutSection Component
 const AboutSection: React.FC<{
-  about?: About | null;
   aboutContent?: AboutContent | null;
   appSettings?: AppSettings | null;
-}> = ({ about, aboutContent, appSettings }) => {
+}> = ({ aboutContent, appSettings }) => {
   return (
     <Section
       id='hakkimizda'
@@ -363,7 +364,10 @@ const AboutSection: React.FC<{
 
       <div className='container mx-auto relative px-4 sm:px-6 lg:px-8'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center'>
-          <AboutContentComponent about={about} appSettings={appSettings} />
+          <AboutContentComponent
+            aboutContent={aboutContent}
+            appSettings={appSettings}
+          />
           <AboutImage aboutContent={aboutContent} />
         </div>
       </div>
