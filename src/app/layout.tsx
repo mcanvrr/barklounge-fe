@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from 'next';
 import { Schoolbell, Sora } from 'next/font/google';
 import { Footer, Header } from '../components';
@@ -70,6 +71,7 @@ export default function RootLayout({
           <Footer />
         </ReduxProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
