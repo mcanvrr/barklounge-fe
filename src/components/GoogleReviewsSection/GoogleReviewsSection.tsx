@@ -8,6 +8,45 @@ import { fetchReviews, fetchReviewStats } from '@/store/slices/reviewsSlice';
 import { MapPin, Quote, Star } from 'lucide-react';
 import { useEffect } from 'react';
 
+// Tarihi "X zaman önce" formatında göstermek için yardımcı fonksiyon
+const getRelativeTime = (dateString: string): string => {
+  const now = new Date();
+  const date = new Date(dateString);
+  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+  if (diffInSeconds < 60) {
+    return 'Az önce';
+  }
+
+  const diffInMinutes = Math.floor(diffInSeconds / 60);
+  if (diffInMinutes < 60) {
+    return `${diffInMinutes} dakika önce`;
+  }
+
+  const diffInHours = Math.floor(diffInMinutes / 60);
+  if (diffInHours < 24) {
+    return `${diffInHours} saat önce`;
+  }
+
+  const diffInDays = Math.floor(diffInHours / 24);
+  if (diffInDays < 7) {
+    return `${diffInDays} gün önce`;
+  }
+
+  const diffInWeeks = Math.floor(diffInDays / 7);
+  if (diffInWeeks < 4) {
+    return `${diffInWeeks} hafta önce`;
+  }
+
+  const diffInMonths = Math.floor(diffInDays / 30);
+  if (diffInMonths < 12) {
+    return `${diffInMonths} ay önce`;
+  }
+
+  const diffInYears = Math.floor(diffInDays / 365);
+  return `${diffInYears} yıl önce`;
+};
+
 export default function GoogleReviewsSection({
   reviews: ssrReviews,
   reviewStats: ssrReviewStats,
@@ -169,10 +208,7 @@ export default function GoogleReviewsSection({
                         {renderStars(review.rating)}
                       </div>
                       <span className='text-xs sm:text-sm text-gray-500'>
-                        •{' '}
-                        {new Date(review.review_date).toLocaleDateString(
-                          'tr-TR'
-                        )}
+                        • {getRelativeTime(review.review_date)}
                       </span>
                     </div>
                   </div>
