@@ -57,7 +57,7 @@ const AboutContentComponent: React.FC<{
       icon: Shield,
       title: 'Güvenli Ortam',
       description:
-        'Temiz ve korunaklı alanlarımızda tam bir rahatlık yuvası sunuyoruz',
+        'Köpekleriniz için özel olarak tasarlanmış steril ve güvenli alanlarda gönül rahatlığıyla vakit geçirmelerini sağlıyoruz.',
       bgColor: 'bg-green-100 group-hover:bg-green-200',
       iconColor: 'text-green-600',
       textColor: 'group-hover:text-green-600',
@@ -66,7 +66,7 @@ const AboutContentComponent: React.FC<{
       icon: Award,
       title: 'Uzman Ekip',
       description:
-        'Veteriner denetimindeki ekibimizle her ihtiyacınıza anında yanıt veriyoruz',
+        'Deneyimli ve hayvansever ekibimiz, dostlarınızın ihtiyaçlarına sevgiyle ve özenle yaklaşır.',
       bgColor: 'bg-yellow-100 group-hover:bg-yellow-200',
       iconColor: 'text-yellow-600',
       textColor: 'group-hover:text-yellow-600',
