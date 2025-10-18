@@ -2,7 +2,7 @@
 
 import { Section } from '@/components/ui';
 import { ServiceItem } from '@/lib/api';
-import type { About } from '@/lib/api/services/appSettings';
+import type { About, AppSettings } from '@/lib/api/services/appSettings';
 import type { ReviewStats } from '@/lib/api/services/customerReviews';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { fetchAbout } from '@/store/slices/aboutSlice';
@@ -280,10 +280,12 @@ const CTASection: React.FC<{
   about?: About | null;
   services?: ServiceItem[];
   reviewStats?: ReviewStats | null;
+  appSettings?: AppSettings | null;
 }> = ({
   about: ssrAbout,
   services: ssrServices,
   reviewStats: ssrReviewStats,
+  appSettings: ssrAppSettings,
 }) => {
   const dispatch = useAppDispatch();
   const { about: reduxAbout } = useAppSelector(state => state.about);
@@ -291,11 +293,14 @@ const CTASection: React.FC<{
   const { reviewStats: reduxReviewStats } = useAppSelector(
     state => state.reviews
   );
-  const { settings: appSettings } = useAppSelector(state => state.appSettings);
+  const { settings: reduxAppSettings } = useAppSelector(
+    state => state.appSettings
+  );
 
   const about = ssrAbout || reduxAbout;
   const services = ssrServices || reduxServices;
   const reviewStats = ssrReviewStats || reduxReviewStats;
+  const appSettings = ssrAppSettings || reduxAppSettings;
 
   useEffect(() => {
     if (!ssrAbout && !reduxAbout) {
@@ -404,7 +409,8 @@ const ServicesSection: React.FC<{
   services?: ServiceItem[];
   about?: About | null;
   reviewStats?: ReviewStats | null;
-}> = ({ services: ssrServices, about, reviewStats }) => {
+  appSettings?: AppSettings | null;
+}> = ({ services: ssrServices, about, reviewStats, appSettings }) => {
   const dispatch = useAppDispatch();
   const {
     services: reduxServices,
@@ -482,6 +488,7 @@ const ServicesSection: React.FC<{
           about={about}
           services={services}
           reviewStats={reviewStats}
+          appSettings={appSettings}
         />
       </div>
     </Section>

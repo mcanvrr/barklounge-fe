@@ -124,6 +124,7 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialData }) => {
           services={initialData.services}
           about={initialData.about}
           reviewStats={initialData.reviewStats}
+          appSettings={initialData.appSettings}
         />
         <Gallery images={initialData.gallery} />
         <AboutUsSection about={initialData.about} />
