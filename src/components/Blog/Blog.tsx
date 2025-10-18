@@ -328,45 +328,67 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ blogPosts, allTags }) => {
             Popüler Hikayeler
           </h3>
         </div>
-        <div className='space-y-3 sm:space-y-4'>
-          {blogPosts.slice(0, 4).map((post, index) => (
-            <Link
-              key={post.id}
-              href={`/blog/${post.slug}`}
-              title={`${post.title} - Popüler yazı`}
-              aria-label={`${post.title} blog yazısını oku`}
-              className='group block'
-            >
-              <div className='flex gap-3 sm:gap-4'>
-                <div className='relative w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex-shrink-0'>
-                  <Image
-                    src={post.cover_image_url}
-                    alt={`${post.title} - Bark&Lounge blog yazısı`}
-                    title={post.title}
-                    fill
-                    className='object-cover rounded-lg sm:rounded-xl'
-                    sizes='(max-width: 640px) 48px, (max-width: 1024px) 56px, 64px'
-                  />
-                  <div className='absolute -top-0.5 -left-0.5 sm:-top-1 sm:-left-1 w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs font-bold rounded-full flex items-center justify-center'>
-                    {index + 1}
-                  </div>
-                </div>
-                <div className='flex-1 min-w-0'>
-                  <h4 className='text-xs sm:text-sm font-semibold text-gray-900 line-clamp-2 group-hover:text-orange-600 transition-colors leading-tight'>
-                    {post.title}
-                  </h4>
-                  <div className='flex items-center gap-2 mt-1 sm:mt-2 text-xs text-gray-500'>
-                    <Calendar className='w-3 h-3' />
-                    {new Date(post.created_at).toLocaleDateString('tr-TR', {
-                      day: 'numeric',
-                      month: 'short',
-                    })}
-                  </div>
-                </div>
+        {blogPosts.length === 0 ? (
+          // Empty State
+          <div className='py-6 sm:py-8 text-center'>
+            <div className='relative inline-block mb-4'>
+              {/* Animated Background */}
+              <div className='absolute inset-0 bg-gradient-to-br from-orange-100 to-amber-100 rounded-full blur-xl opacity-60 animate-pulse'></div>
+              {/* Icon Container */}
+              <div className='relative w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-orange-50 to-amber-50 rounded-full flex items-center justify-center border-2 border-orange-100'>
+                <BookOpen className='w-6 h-6 sm:w-7 sm:h-7 text-orange-600 animate-pulse' />
               </div>
-            </Link>
-          ))}
-        </div>
+            </div>
+            <h4 className='text-sm sm:text-base font-semibold text-gray-700 mb-1 sm:mb-2'>
+              Henüz Hikaye Yok
+            </h4>
+            <p className='text-xs sm:text-sm text-gray-500 leading-relaxed'>
+              İlk hikayeleri paylaşmak için
+              <br />
+              sabırsızlanıyoruz! 🐾
+            </p>
+          </div>
+        ) : (
+          <div className='space-y-3 sm:space-y-4'>
+            {blogPosts.slice(0, 4).map((post, index) => (
+              <Link
+                key={post.id}
+                href={`/blog/${post.slug}`}
+                title={`${post.title} - Popüler yazı`}
+                aria-label={`${post.title} blog yazısını oku`}
+                className='group block'
+              >
+                <div className='flex gap-3 sm:gap-4'>
+                  <div className='relative w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex-shrink-0'>
+                    <Image
+                      src={post.cover_image_url}
+                      alt={`${post.title} - Bark&Lounge blog yazısı`}
+                      title={post.title}
+                      fill
+                      className='object-cover rounded-lg sm:rounded-xl'
+                      sizes='(max-width: 640px) 48px, (max-width: 1024px) 56px, 64px'
+                    />
+                    <div className='absolute -top-0.5 -left-0.5 sm:-top-1 sm:-left-1 w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs font-bold rounded-full flex items-center justify-center'>
+                      {index + 1}
+                    </div>
+                  </div>
+                  <div className='flex-1 min-w-0'>
+                    <h4 className='text-xs sm:text-sm font-semibold text-gray-900 line-clamp-2 group-hover:text-orange-600 transition-colors leading-tight'>
+                      {post.title}
+                    </h4>
+                    <div className='flex items-center gap-2 mt-1 sm:mt-2 text-xs text-gray-500'>
+                      <Calendar className='w-3 h-3' />
+                      {new Date(post.created_at).toLocaleDateString('tr-TR', {
+                        day: 'numeric',
+                        month: 'short',
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* TODO: Newsletter */}
@@ -574,3 +596,4 @@ const PostsGrid: React.FC<PostsGridProps> = ({
 
 // Export main component and sub-components
 export { BlogCard, BlogHeader, BlogSidebar, FeaturedPost, PostsGrid };
+
