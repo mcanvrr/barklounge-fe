@@ -596,4 +596,3 @@ const PostsGrid: React.FC<PostsGridProps> = ({
 
 // Export main component and sub-components
 export { BlogCard, BlogHeader, BlogSidebar, FeaturedPost, PostsGrid };
-
