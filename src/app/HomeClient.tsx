@@ -130,6 +130,7 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialData }) => {
         <GoogleReviewsSection
           reviews={initialData.reviews}
           reviewStats={initialData.reviewStats}
+          appSettings={initialData.appSettings}
         />
         <ContactFormSection appSettings={initialData.appSettings} />
       </div>

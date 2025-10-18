@@ -1,6 +1,7 @@
 'use client';
 
 import { CustomerReview } from '@/lib/api';
+import type { AppSettings } from '@/lib/api/services/appSettings';
 import type { ReviewStats } from '@/lib/api/services/customerReviews';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { fetchReviews, fetchReviewStats } from '@/store/slices/reviewsSlice';
@@ -10,9 +11,11 @@ import { useEffect } from 'react';
 export default function GoogleReviewsSection({
   reviews: ssrReviews,
   reviewStats: ssrReviewStats,
+  appSettings: ssrAppSettings,
 }: {
   reviews?: CustomerReview[];
   reviewStats?: ReviewStats | null;
+  appSettings?: AppSettings | null;
 }) {
   const dispatch = useAppDispatch();
   const {
@@ -21,10 +24,13 @@ export default function GoogleReviewsSection({
     loading,
     error,
   } = useAppSelector(state => state.reviews);
-  const { settings: appSettings } = useAppSelector(state => state.appSettings);
+  const { settings: reduxAppSettings } = useAppSelector(
+    state => state.appSettings
+  );
 
   const reviews = ssrReviews || reduxReviews;
   const reviewStats = ssrReviewStats || reduxReviewStats;
+  const appSettings = ssrAppSettings || reduxAppSettings;
 
   useEffect(() => {
     if (!ssrReviews && reduxReviews.length === 0) {
