@@ -48,7 +48,7 @@ const AboutContentComponent: React.FC<{
     {
       icon: Heart,
       title: 'Sevgi Dolu Bakım',
-      description: 'Her dostumuzu ailemizin parçası gibi seviyoruz',
+      description: 'Dostunuzu kucaklayarak her anı sevgiyle dolduruyoruz',
       bgColor: 'bg-pink-100 group-hover:bg-pink-200',
       iconColor: 'text-pink-600',
       textColor: 'group-hover:text-pink-600',
@@ -56,7 +56,8 @@ const AboutContentComponent: React.FC<{
     {
       icon: Shield,
       title: 'Güvenli Ortam',
-      description: '7/24 kamera sistemi ve hijyenik tesis',
+      description:
+        'Temiz ve korunaklı alanlarımızda tam bir rahatlık yuvası sunuyoruz',
       bgColor: 'bg-green-100 group-hover:bg-green-200',
       iconColor: 'text-green-600',
       textColor: 'group-hover:text-green-600',
@@ -64,7 +65,8 @@ const AboutContentComponent: React.FC<{
     {
       icon: Award,
       title: 'Uzman Ekip',
-      description: 'Veteriner denetiminde profesyonel hizmet',
+      description:
+        'Veteriner denetimindeki ekibimizle her ihtiyacınıza anında yanıt veriyoruz',
       bgColor: 'bg-yellow-100 group-hover:bg-yellow-200',
       iconColor: 'text-yellow-600',
       textColor: 'group-hover:text-yellow-600',
